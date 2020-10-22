@@ -12,6 +12,7 @@ namespace FinalProject
 {
     public partial class Form1 : Form
     {
+        int thai;
         public Form1()
         {
             InitializeComponent();
