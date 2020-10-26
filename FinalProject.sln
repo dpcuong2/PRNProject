@@ -16,6 +16,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		script.sql = script.sql
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataObject", "DataObject\DataObject.csproj", "{89939ED8-6576-4844-8598-18DD37DB7E20}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,12 +32,17 @@ Global
 		{D78820C8-F22A-41D6-9BD0-148E79EF253A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D78820C8-F22A-41D6-9BD0-148E79EF253A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D78820C8-F22A-41D6-9BD0-148E79EF253A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89939ED8-6576-4844-8598-18DD37DB7E20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89939ED8-6576-4844-8598-18DD37DB7E20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89939ED8-6576-4844-8598-18DD37DB7E20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89939ED8-6576-4844-8598-18DD37DB7E20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{D78820C8-F22A-41D6-9BD0-148E79EF253A} = {9B78063B-0D80-46BC-A19E-B40687B856A5}
+		{89939ED8-6576-4844-8598-18DD37DB7E20} = {D490C2FE-0933-4D45-BF59-99F3307BF1F0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9832F4C7-C069-4B67-B62E-C6D3E5292C34}

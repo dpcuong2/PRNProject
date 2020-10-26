@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BussinessObject
 {
-    public class Category
+    public class Category:BusinessObject
     {
         public string CategoryId { get; set; }
         public string CategoryName { get; set; }
