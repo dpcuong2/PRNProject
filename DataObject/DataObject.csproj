@@ -43,6 +43,14 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="IBrandDao.cs" />
+    <Compile Include="ICategoryDao.cs" />
+    <Compile Include="ICustomerDao.cs" />
+    <Compile Include="IDaoFactory.cs" />
+    <Compile Include="IOrderDao.cs" />
+    <Compile Include="IOrderDetailDao.cs" />
+    <Compile Include="IProductDao.cs" />
+    <Compile Include="IShipmentDao.cs" />
+    <Compile Include="IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
