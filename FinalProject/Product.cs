@@ -10,10 +10,9 @@ using System.Windows.Forms;
 
 namespace FinalProject
 {
-    public partial class Form1 : Form
+    public partial class Product : Form
     {
-        int thai;
-        public Form1()
+        public Product()
         {
             InitializeComponent();
         }

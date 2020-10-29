@@ -87,7 +87,7 @@
             this.helpToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(938, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(938, 30);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -99,7 +99,7 @@
             this.toolStripSeparator2,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 24);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(46, 26);
             this.fileToolStripMenuItem.Text = "&File";
             // 
             // newToolStripMenuItem
@@ -138,7 +138,7 @@
             this.toolStripSeparator4,
             this.selectAllToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 24);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(49, 26);
             this.editToolStripMenuItem.Text = "&Edit";
             // 
             // redoToolStripMenuItem
@@ -197,7 +197,7 @@
             this.customizeToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
-            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(58, 24);
+            this.toolsToolStripMenuItem.Size = new System.Drawing.Size(58, 26);
             this.toolsToolStripMenuItem.Text = "&Tools";
             // 
             // customizeToolStripMenuItem
@@ -219,7 +219,7 @@
             this.toolStripSeparator5,
             this.aboutToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 24);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(55, 26);
             this.helpToolStripMenuItem.Text = "&Help";
             // 
             // searchToolStripMenuItem
@@ -242,7 +242,7 @@
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 28);
+            this.splitContainer1.Location = new System.Drawing.Point(0, 30);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -252,8 +252,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Size = new System.Drawing.Size(938, 600);
-            this.splitContainer1.SplitterDistance = 285;
+            this.splitContainer1.Size = new System.Drawing.Size(938, 598);
+            this.splitContainer1.SplitterDistance = 228;
             this.splitContainer1.TabIndex = 1;
             // 
             // treeView1
@@ -263,7 +263,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.treeView1.Location = new System.Drawing.Point(3, 3);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(279, 594);
+            this.treeView1.Size = new System.Drawing.Size(222, 592);
             this.treeView1.TabIndex = 0;
             // 
             // splitContainer2
@@ -283,14 +283,14 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.dgvProductList);
-            this.splitContainer2.Size = new System.Drawing.Size(649, 600);
-            this.splitContainer2.SplitterDistance = 94;
+            this.splitContainer2.Size = new System.Drawing.Size(706, 598);
+            this.splitContainer2.SplitterDistance = 93;
             this.splitContainer2.TabIndex = 0;
             // 
             // button4
             // 
             this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.Location = new System.Drawing.Point(194, 36);
+            this.button4.Location = new System.Drawing.Point(251, 36);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(75, 23);
             this.button4.TabIndex = 3;
@@ -300,7 +300,7 @@
             // button3
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(526, 36);
+            this.button3.Location = new System.Drawing.Point(583, 36);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 2;
@@ -310,7 +310,7 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(360, 36);
+            this.button2.Location = new System.Drawing.Point(417, 36);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 1;
@@ -320,7 +320,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(26, 36);
+            this.button1.Location = new System.Drawing.Point(83, 36);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -337,7 +337,7 @@
             this.dgvProductList.Name = "dgvProductList";
             this.dgvProductList.RowHeadersWidth = 51;
             this.dgvProductList.RowTemplate.Height = 24;
-            this.dgvProductList.Size = new System.Drawing.Size(634, 496);
+            this.dgvProductList.Size = new System.Drawing.Size(691, 495);
             this.dgvProductList.TabIndex = 0;
             this.dgvProductList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseClick);
             // 
@@ -362,19 +362,19 @@
             // Search
             // 
             this.Search.Name = "Search";
-            this.Search.Size = new System.Drawing.Size(210, 24);
+            this.Search.Size = new System.Drawing.Size(127, 24);
             this.Search.Text = "Search";
             // 
             // Update
             // 
             this.Update.Name = "Update";
-            this.Update.Size = new System.Drawing.Size(210, 24);
+            this.Update.Size = new System.Drawing.Size(127, 24);
             this.Update.Text = "Update";
             // 
             // Delete
             // 
             this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(210, 24);
+            this.Delete.Size = new System.Drawing.Size(127, 24);
             this.Delete.Text = "Delete";
             // 
             // Admin

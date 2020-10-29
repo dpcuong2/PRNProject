@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace FinalProject
 {
-    public partial class CreateOrder : Form
+    public partial class Order : Form
     {
-        public CreateOrder()
+        int thai;
+        public Order()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
