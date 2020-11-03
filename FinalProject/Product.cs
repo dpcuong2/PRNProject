@@ -16,5 +16,15 @@ namespace FinalProject
         {
             InitializeComponent();
         }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
