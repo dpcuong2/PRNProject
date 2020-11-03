@@ -10,12 +10,21 @@ using System.Windows.Forms;
 
 namespace FinalProject
 {
-    public partial class Form1 : Form
+    public partial class Product : Form
     {
-        int thai;
-        public Form1()
+        public Product()
         {
             InitializeComponent();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancle_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
