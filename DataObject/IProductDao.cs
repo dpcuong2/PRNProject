@@ -11,7 +11,9 @@ namespace DataObject
     {
         Product GetProduct();
 
-        List<Product> GetProducts();
+        List<Product> GetProductsByName(string name);
+        List<Product> GetProductsByBrand(string brand);
+        List<Product> GetProductsByCategory(string category);
 
         bool AddProduct();
         bool UpdateProduct();
