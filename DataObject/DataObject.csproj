@@ -52,7 +52,6 @@
     <Compile Include="IOrderDao.cs" />
     <Compile Include="IOrderDetailDao.cs" />
     <Compile Include="IProductDao.cs" />
-    <Compile Include="IShipmentDao.cs" />
     <Compile Include="IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
