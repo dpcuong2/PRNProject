@@ -51,7 +51,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-
     <Compile Include="Admin.cs">
       <SubType>Form</SubType>
     </Compile>
