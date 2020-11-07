@@ -7,7 +7,7 @@ using BussinessObject;
 
 namespace DataObject
 {
-    public interface IProduct
+    public interface IProductDao
     {
         Product GetProduct();
 

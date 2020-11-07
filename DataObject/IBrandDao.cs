@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,7 +10,7 @@ namespace DataObject
 {
     public interface IBrandDao
     {
-        List<Brand> getBrandsList();
+        DataTable getBrands();
 
         bool UpdateBrand();
 
