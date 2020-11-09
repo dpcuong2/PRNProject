@@ -49,7 +49,6 @@
     <Compile Include="AdoNet\OrderDao.cs" />
     <Compile Include="AdoNet\ProductDao.cs" />
     <Compile Include="AdoNet\UserDao.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="DaoFactory.cs" />
     <Compile Include="IBrandDao.cs" />
     <Compile Include="ICategoryDao.cs" />

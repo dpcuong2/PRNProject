@@ -11,11 +11,44 @@ namespace DataObject.AdoNet
 {
     class CategoryDao : ICategoryDao
     {
-        static Db db = new Db();
+        
 
-        public DataTable GetCategories()
+        public bool AddCategory(Category c)
         {
-            string sql ="";
+            bool result = false;
+            SqlConnection conn = new SqlConnection();
+            string sql = "dbo.AddCategory";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@ID", c.CategoryId);
+            cmd.Parameters.AddWithValue("@Name", c.CategoryName);
+            //truyen value
+            
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
+
+        }
+
+        
+
+        public DataTable GetCategoryList()
+        {
+            string sql ="dbo.GetAllCategory";
             SqlConnection conn = new SqlConnection();
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -42,10 +75,15 @@ namespace DataObject.AdoNet
         public Category GetCategoryByProduct(int productId)
         {
             Category category = null;
-            string sql ="";
+            string sql ="dbo.GetCategoryByProduct";
             SqlConnection conn = new SqlConnection();
             SqlCommand cmd = new SqlCommand(sql, conn);
-            SqlDataReader dr = cmd.ExecuteReader();
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@productId" , productId);
+            
+            
+            
+
             // truyen value
             try
             {
@@ -53,10 +91,11 @@ namespace DataObject.AdoNet
                 {
                     conn.Open();
                 }
+                SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    String CategoryName = dr["categoryName"].ToString();
-                    String CategoryID = dr["categoryID"].ToString();
+                    string CategoryName = dr["categoryName"].ToString();
+                    string CategoryID = dr["categoryID"].ToString();
                     category = new Category
                     {
                         CategoryId = CategoryID,
@@ -71,5 +110,33 @@ namespace DataObject.AdoNet
             return category;
         }
 
+        
+
+        public bool UpdateCategory(Category c)
+        {
+
+            bool result = false;
+            SqlConnection conn = new SqlConnection();
+            string sql = "dbo.UpdateCategory";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Id", c.CategoryId);
+            cmd.Parameters.AddWithValue("@Name", c.CategoryName);
+            //truyen value
+
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                result = cmd.ExecuteNonQuery() > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
+        }
     }
 }

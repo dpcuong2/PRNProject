@@ -10,12 +10,14 @@ namespace DataObject
 {
     public interface IBrandDao
     {
+        
         DataTable getBrands();
 
-        bool UpdateBrand();
 
-        bool AddBrand();
-        bool DeleteBrand();
+        bool UpdateBrand(Brand b);
+
+        bool AddBrand(Brand b);
+        bool DeleteBrand(Brand b);
 
 
     }

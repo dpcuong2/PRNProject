@@ -9,7 +9,7 @@ using BussinessObject;
 
 namespace DataObject.AdoNet
 {
-    class ProductDao
+    class ProductDao:IProductDao
     {
         public DataTable GetProducts()
         {
@@ -162,6 +162,39 @@ namespace DataObject.AdoNet
             return result;
         }
 
+        public Product GetProduct()
+        {
+            throw new NotImplementedException();
+        }
 
+        public List<Product> GetProductsByName(string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Product> GetProductsByBrand(string brand)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Product> GetProductsByCategory(string category)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool AddProduct()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool UpdateProduct()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool DeleteProduct()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataObject.AdoNet
 {
-    class UserDao
+    class UserDao:IUser
     {
         public bool CheckLogin(string userID, string password)
         {
@@ -30,6 +30,11 @@ namespace DataObject.AdoNet
                 throw new Exception(ex.Message);
             }
             return result;
+        }
+
+        public bool CheckLogin()
+        {
+            throw new NotImplementedException();
         }
     }
 }

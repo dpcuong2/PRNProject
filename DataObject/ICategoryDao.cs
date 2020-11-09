@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,11 +10,11 @@ namespace DataObject
 {
     public interface ICategoryDao
     {
-        List<Category> getCategoryList();
+        DataTable GetCategoryList();
 
-        bool AddCategory();
-        bool UpdateCategory();
-        bool DeleteCategory();
+        bool AddCategory(Category c);
+        bool UpdateCategory(Category c);
+       
 
     }
 }

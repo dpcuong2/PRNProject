@@ -9,22 +9,39 @@ using BussinessObject;
 
 namespace DataObject.AdoNet
 {
-    class CustomerDao
+    class CustomerDao:ICustomerDao
     {
-        public DataTable GetCustomers()
+        
+
+
+        public Customer GetCustomer(string customerId)
         {
-            string sql = "";
+            Customer customer = null;
+            string sql = "dbo.GetCustomers";
             SqlConnection conn = new SqlConnection();
             SqlCommand cmd = new SqlCommand(sql, conn);
-            SqlDataAdapter da = new SqlDataAdapter(cmd);
-            DataTable dt = new DataTable();
+            
             try
             {
                 if (conn.State == ConnectionState.Closed)
                 {
                     conn.Open();
                 }
-                da.Fill(dt);
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    int customerID = dr.GetInt32(1);
+                    string name = dr.GetString(2);
+                    string phone = dr.GetString(3);
+                    customer = new Customer
+                    {
+                        CustomerID = customerID,
+                        Name = name,
+                        Phone = phone
+
+                    };
+
+                }
             }
             catch (SqlException ex)
             {
@@ -34,16 +51,18 @@ namespace DataObject.AdoNet
             {
                 conn.Close();
             }
-            return dt;
+            return customer;
         }
 
-        public bool addCustomer(Customer c)
+        public bool AddCustomer(Customer c)
         {
             bool result = false;
             SqlConnection conn = new SqlConnection();
-            string sql = "";
+            string sql = "dbo.AddCustomer";
             SqlCommand cmd = new SqlCommand(sql, conn);
             //truyen value
+            cmd.Parameters.AddWithValue("@Name", c.Name);
+            cmd.Parameters.AddWithValue("@Phone", c.Phone);
             try
             {
                 if (conn.State == ConnectionState.Closed)

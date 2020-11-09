@@ -9,9 +9,9 @@ namespace DataObject
 {
     public interface ICustomerDao
     {
-        Customer GetCustomer();
+        Customer GetCustomer(string customerId);
 
-        bool AddCustomer();
+        bool AddCustomer(Customer c);
 
     }
 }

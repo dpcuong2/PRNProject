@@ -11,11 +11,13 @@ namespace DataObject.AdoNet
 {
     class BrandDao : IBrandDao
     {
-        public DataTable GetBrands()
+        
+        public DataTable getBrands()
         {
-            string sql = "";
+            string sql = "dbo.GetAllBrandsList";
             SqlConnection conn = new SqlConnection();
             SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             try
@@ -40,17 +42,20 @@ namespace DataObject.AdoNet
         public Brand GetBrandByProduct(int productId)
         {
             Brand brand = null;
-            string sql = "";
+            string sql = "dbo.GetBrandByProduct";
             SqlConnection conn = new SqlConnection();
             SqlCommand cmd = new SqlCommand(sql, conn);
-            SqlDataReader dr = cmd.ExecuteReader();
+            cmd.CommandType = CommandType.StoredProcedure;
+            
             // truyen value
+            cmd.Parameters.AddWithValue("@productId" , productId);
             try
             {
                 if (conn.State == ConnectionState.Closed)
                 {
                     conn.Open();
                 }
+                SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
                     String BrandName = dr["name"].ToString();
@@ -69,24 +74,84 @@ namespace DataObject.AdoNet
             return brand;
         }
 
-        public DataTable getBrands()
+       
+
+        public bool UpdateBrand(Brand b)
         {
-            throw new NotImplementedException();
+            bool result = false;
+            SqlConnection conn = new SqlConnection();
+            string sql = "dbo.UpdateBrand";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            //truyen value
+            cmd.Parameters.AddWithValue("@brandID" , b.BrandId);
+            cmd.Parameters.AddWithValue("@name", b.Name);
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                result = cmd.ExecuteNonQuery() > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
         }
 
-        public bool UpdateBrand()
+        public bool AddBrand(Brand b)
         {
-            throw new NotImplementedException();
+            bool result = false;
+            SqlConnection conn = new SqlConnection();
+            string sql = "dbo.AddBrand";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            //truyen value
+            cmd.Parameters.AddWithValue("@brandID", b.BrandId);
+            cmd.Parameters.AddWithValue("@name", b.Name);
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                result = cmd.ExecuteNonQuery() > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
         }
 
-        public bool AddBrand()
+        public bool DeleteBrand(Brand b)
         {
-            throw new NotImplementedException();
-        }
+            bool result = false;
+            SqlConnection conn = new SqlConnection();
+            string sql = "dbo.DeleteBranch";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
 
-        public bool DeleteBrand()
-        {
-            throw new NotImplementedException();
+            //truyen value
+            cmd.Parameters.AddWithValue("@brandID", b.BrandId);
+            cmd.Parameters.AddWithValue("@name", b.Name);
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                result = cmd.ExecuteNonQuery() > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
         }
     }
 }
