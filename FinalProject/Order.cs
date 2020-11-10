@@ -27,5 +27,10 @@ namespace FinalProject
         {
 
         }
+
+        private void txtCustomer_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

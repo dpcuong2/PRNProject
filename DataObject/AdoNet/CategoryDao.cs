@@ -51,6 +51,7 @@ namespace DataObject.AdoNet
             string sql ="dbo.GetAllCategory";
             SqlConnection conn = new SqlConnection();
             SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             try
@@ -78,6 +79,7 @@ namespace DataObject.AdoNet
             string sql ="dbo.GetCategoryByProduct";
             SqlConnection conn = new SqlConnection();
             SqlCommand cmd = new SqlCommand(sql, conn);
+
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@productId" , productId);
             

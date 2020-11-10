@@ -20,7 +20,7 @@ namespace DataObject.AdoNet
             string sql = "dbo.GetCustomers";
             SqlConnection conn = new SqlConnection();
             SqlCommand cmd = new SqlCommand(sql, conn);
-            
+            cmd.CommandType = CommandType.StoredProcedure;
             try
             {
                 if (conn.State == ConnectionState.Closed)
@@ -60,6 +60,7 @@ namespace DataObject.AdoNet
             SqlConnection conn = new SqlConnection();
             string sql = "dbo.AddCustomer";
             SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
             //truyen value
             cmd.Parameters.AddWithValue("@Name", c.Name);
             cmd.Parameters.AddWithValue("@Phone", c.Phone);
