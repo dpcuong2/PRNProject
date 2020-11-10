@@ -33,11 +33,10 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnSave = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dtpCreateDay = new System.Windows.Forms.DateTimePicker();
             this.txtProductName = new System.Windows.Forms.TextBox();
             this.txtQuantity = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
-            this.txtStatus = new System.Windows.Forms.TextBox();
             this.txtProductID = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -45,6 +44,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.cbStatus = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cbBrand = new System.Windows.Forms.ComboBox();
+            this.cbCategory = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -88,11 +92,15 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.dateTimePicker1);
+            this.panel2.Controls.Add(this.cbCategory);
+            this.panel2.Controls.Add(this.cbBrand);
+            this.panel2.Controls.Add(this.label7);
+            this.panel2.Controls.Add(this.label6);
+            this.panel2.Controls.Add(this.cbStatus);
+            this.panel2.Controls.Add(this.dtpCreateDay);
             this.panel2.Controls.Add(this.txtProductName);
             this.panel2.Controls.Add(this.txtQuantity);
             this.panel2.Controls.Add(this.txtPrice);
-            this.panel2.Controls.Add(this.txtStatus);
             this.panel2.Controls.Add(this.txtProductID);
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.label5);
@@ -105,12 +113,12 @@
             this.panel2.Size = new System.Drawing.Size(560, 478);
             this.panel2.TabIndex = 1;
             // 
-            // dateTimePicker1
+            // dtpCreateDay
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(233, 226);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(278, 22);
-            this.dateTimePicker1.TabIndex = 14;
+            this.dtpCreateDay.Location = new System.Drawing.Point(233, 319);
+            this.dtpCreateDay.Name = "dtpCreateDay";
+            this.dtpCreateDay.Size = new System.Drawing.Size(278, 22);
+            this.dtpCreateDay.TabIndex = 14;
             // 
             // txtProductName
             // 
@@ -133,13 +141,6 @@
             this.txtPrice.Size = new System.Drawing.Size(278, 22);
             this.txtPrice.TabIndex = 11;
             // 
-            // txtStatus
-            // 
-            this.txtStatus.Location = new System.Drawing.Point(233, 275);
-            this.txtStatus.Name = "txtStatus";
-            this.txtStatus.Size = new System.Drawing.Size(140, 22);
-            this.txtStatus.TabIndex = 9;
-            // 
             // txtProductID
             // 
             this.txtProductID.Location = new System.Drawing.Point(233, 35);
@@ -150,7 +151,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(60, 231);
+            this.label8.Location = new System.Drawing.Point(60, 324);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(100, 17);
             this.label8.TabIndex = 7;
@@ -177,7 +178,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(60, 280);
+            this.label3.Location = new System.Drawing.Point(60, 368);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 17);
             this.label3.TabIndex = 2;
@@ -200,6 +201,57 @@
             this.label1.Size = new System.Drawing.Size(82, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Product ID :";
+            // 
+            // cbStatus
+            // 
+            this.cbStatus.FormattingEnabled = true;
+            this.cbStatus.Items.AddRange(new object[] {
+            "True",
+            "False"});
+            this.cbStatus.Location = new System.Drawing.Point(233, 361);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.Size = new System.Drawing.Size(121, 24);
+            this.cbStatus.TabIndex = 15;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(60, 231);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 17);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Brand";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(60, 274);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(65, 17);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Category";
+            // 
+            // cbBrand
+            // 
+            this.cbBrand.FormattingEnabled = true;
+            this.cbBrand.Items.AddRange(new object[] {
+            "True",
+            "False"});
+            this.cbBrand.Location = new System.Drawing.Point(233, 224);
+            this.cbBrand.Name = "cbBrand";
+            this.cbBrand.Size = new System.Drawing.Size(121, 24);
+            this.cbBrand.TabIndex = 18;
+            // 
+            // cbCategory
+            // 
+            this.cbCategory.FormattingEnabled = true;
+            this.cbCategory.Items.AddRange(new object[] {
+            "True",
+            "False"});
+            this.cbCategory.Location = new System.Drawing.Point(233, 271);
+            this.cbCategory.Name = "cbCategory";
+            this.cbCategory.Size = new System.Drawing.Size(121, 24);
+            this.cbCategory.TabIndex = 19;
             // 
             // Product
             // 
@@ -235,8 +287,12 @@
         private System.Windows.Forms.TextBox txtProductName;
         private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.TextBox txtPrice;
-        private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.TextBox txtProductID;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dtpCreateDay;
+        private System.Windows.Forms.ComboBox cbStatus;
+        private System.Windows.Forms.ComboBox cbCategory;
+        private System.Windows.Forms.ComboBox cbBrand;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label6;
     }
 }
