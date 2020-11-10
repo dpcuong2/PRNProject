@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,48 +12,48 @@ namespace Service_Action
     {
         // Category Repository
 
-        List<Category> GetCategories();
-        Category GetCategoryByProduct(int productID);
-        Category GetCategoryByBrand(int brandID);
+        bool AddCategory(Category c);
+
+        DataTable GetCategoryList();
+        Category GetCategoryByProduct(int productId);
+
+
+        bool UpdateCategory(Category c);
 
         // Brand Repository
-        List<Brand> GetBrands();
-
-        Brand GetBrandByProduct(int productID);
-
-        Brand GetBrandByCategory(int categoryID);
+        DataTable getBrands();
+        Brand GetBrandByProduct(int productId);
+        bool UpdateBrand(Brand b);
+        bool AddBrand(Brand b);
+        bool DeleteBrand(Brand b);
 
         // Product Repository
 
-        Product GetProduct(int productId);
-        List<Product> GetProductsByCategory(int categoryID);
-        List<Product> GetProductsByBrand(int brandID);
-        List<Product> SearchProducts(string productName, double min, double max);
+        bool AddProduct(Product p);
+        bool DeleteProduct(Product p);
+        Product GetProduct(string productId);
+        DataTable GetProductsByBrand(string brand);
+        DataTable GetProductsByCategory(string category);
+        DataTable GetProductsByName(string name);
+        bool UpdateProduct(Product p);
 
-        // Member Repository
-        User GetUser(int userID);
-        List<User> GetUsers();
-        User GetUserByOrder(int orderID);
-        void InsertUser(User user);
-        void UpdateUser(User user);
-        void DeleteUser(string userID);
+        // User Repository
+        bool CheckLogin(string userID, string password);
 
         // Order Repository
-        #region Order Repository
+        bool CreateOrder(Order o);
+        DataTable GetOrderList();
 
-        Order GetOrder(int orderID);
-        List<Order> GetOrdersByUser(int userID);
-        List<Order> GetOrdersByDate(DateTime dateFrom, DateTime dateThru);
-
-        void CreateOrder(Order order);
-        void UpdateOrder(Order order);
-        void DeleteOrder(string orderID);
-
-        #endregion
+        Order GetOrder(int orderId);
+        bool DeleteOrder(Order o);
+        bool UpdateOrder(Order o);
         // OrderDetail Repository
+        bool CreateOrderDetail(OrderDetail od);
+        bool DeleteOrderDetail(string orderID);
+        OrderDetail GetOrderDetail(int orderDetailId);
+        DataTable GetOrderDetails();
+        bool UpdateOrderDetail(OrderDetail od);
 
-        List<OrderDetail> GetOrderDetails(int orderId);
-        bool Login(string userID, string password);
-        void Logout();
+
     }
 }
