@@ -14,6 +14,7 @@ namespace BussinessObject
         public float TotalPrice { get; set; }
         public bool Status { get; set; }
         public int Discount { get; set; }
+        public string Address { get; set; }
 
     }
 }
