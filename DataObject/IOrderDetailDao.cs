@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,12 +10,12 @@ namespace DataObject
 {
     public interface IOrderDetailDao
     {
-        List<OrderDetail> GetOrderDetails();
+        DataTable GetOrderDetails();
 
         OrderDetail GetOrderDetail();
 
-        bool CreateOrderDetail();
-        bool UpdateOrderDetail();
-        bool DeleteOrderDetail();
+        bool CreateOrderDetail(OrderDetail od);
+        bool UpdateOrderDetail(OrderDetail od);
+        bool DeleteOrderDetail(string orderID);
     }
 }

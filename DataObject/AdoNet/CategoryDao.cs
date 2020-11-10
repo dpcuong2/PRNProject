@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,12 +12,17 @@ namespace DataObject.AdoNet
 {
     class CategoryDao : ICategoryDao
     {
-        
+        string connectionString;
+
+        public CategoryDao()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["sqlserver"].ConnectionString;
+        }
 
         public bool AddCategory(Category c)
         {
             bool result = false;
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(connectionString);
             string sql = "dbo.AddCategory";
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -49,7 +55,7 @@ namespace DataObject.AdoNet
         public DataTable GetCategoryList()
         {
             string sql ="dbo.GetAllCategory";
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -76,7 +82,7 @@ namespace DataObject.AdoNet
         {
             Category category = null;
             string sql ="dbo.GetCategoryByProduct";
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@productId" , productId);
@@ -116,7 +122,7 @@ namespace DataObject.AdoNet
         {
 
             bool result = false;
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(connectionString);
             string sql = "dbo.UpdateCategory";
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.StoredProcedure;

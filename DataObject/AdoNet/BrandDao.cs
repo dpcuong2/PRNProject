@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,11 +12,16 @@ namespace DataObject.AdoNet
 {
     class BrandDao : IBrandDao
     {
-        
+        string connectionString;
+
+        public BrandDao()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["sqlserver"].ConnectionString;
+        }
         public DataTable getBrands()
         {
             string sql = "dbo.GetAllBrandsList";
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
@@ -43,7 +49,7 @@ namespace DataObject.AdoNet
         {
             Brand brand = null;
             string sql = "dbo.GetBrandByProduct";
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             
@@ -79,7 +85,7 @@ namespace DataObject.AdoNet
         public bool UpdateBrand(Brand b)
         {
             bool result = false;
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(connectionString);
             string sql = "dbo.UpdateBrand";
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -105,7 +111,7 @@ namespace DataObject.AdoNet
         public bool AddBrand(Brand b)
         {
             bool result = false;
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(connectionString);
             string sql = "dbo.AddBrand";
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -131,7 +137,7 @@ namespace DataObject.AdoNet
         public bool DeleteBrand(Brand b)
         {
             bool result = false;
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(connectionString);
             string sql = "dbo.DeleteBranch";
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.StoredProcedure;

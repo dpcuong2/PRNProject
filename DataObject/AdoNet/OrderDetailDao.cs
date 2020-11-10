@@ -10,16 +10,15 @@ using BussinessObject;
 
 namespace DataObject.AdoNet
 {
-    class OrderDao:IOrderDao
+    class OrderDetailDao : IOrderDetailDao
     {
         string connectionString;
 
-        public OrderDao()
+        public OrderDetailDao()
         {
             connectionString = ConfigurationManager.ConnectionStrings["sqlserver"].ConnectionString;
         }
-
-        public bool CreateOrder(Order o)
+        public bool CreateOrderDetail(OrderDetail od)
         {
             bool result = false;
             SqlConnection conn = new SqlConnection(connectionString);
@@ -39,13 +38,49 @@ namespace DataObject.AdoNet
                 throw new Exception(ex.Message);
             }
             return result;
-        }  
+        }
 
-        public DataTable GetOrderList()
+        public bool DeleteOrderDetail(string orderID)
         {
-            string sql = "dbo.GetOrdersList";
+            throw new NotImplementedException();
+        }
+
+        public OrderDetail GetOrderDetail()
+        {
+            OrderDetail orderDetail = null;
+            string sql = "";
             SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // truyen value
+           
+
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return orderDetail;
+        }
+
+        public DataTable GetOrderDetails()
+        {
+            string sql = "";
+            SqlConnection conn = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
             try
@@ -67,51 +102,15 @@ namespace DataObject.AdoNet
             return dt;
         }
 
-        public Order GetOrder(int orderId)
-        {
-            Order order = null;
-            string sql = "dbo.GetOrderById";
-            SqlConnection conn = new SqlConnection(connectionString);
-            SqlCommand cmd = new SqlCommand(sql, conn);
-
-            try
-            {
-                if (conn.State == ConnectionState.Closed)
-                {
-                    conn.Open();
-                }
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    int customerID = dr.GetInt32(1);
-                    string name = dr.GetString(2);
-                    string phone = dr.GetString(3);
-                    
-
-                }
-                return order;
-            }
-            catch (SqlException ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        public bool DeleteOrder(Order o)
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool UpdateOrder(Order o)
+        public bool UpdateOrderDetail(OrderDetail od)
         {
             bool result = false;
             SqlConnection conn = new SqlConnection(connectionString);
             string sql = "";
             SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+           // cmd.Parameters.AddWithValue();
+           // cmd.Parameters.AddWithValue();
             //truyen value
             try
             {

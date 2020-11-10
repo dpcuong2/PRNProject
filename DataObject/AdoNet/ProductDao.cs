@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,10 +12,17 @@ namespace DataObject.AdoNet
 {
     class ProductDao:IProductDao
     {
+        string connectionString;
+
+        public ProductDao()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["sqlserver"].ConnectionString;
+        }
+
         public DataTable GetProducts()
         {
             string sql = "";
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -40,7 +48,7 @@ namespace DataObject.AdoNet
         public DataTable GetProductByName(int name)
         {
             string sql = "";
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -67,7 +75,7 @@ namespace DataObject.AdoNet
         public DataTable GetProductByBrand(int brand)
         {
             string sql = "";
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -94,7 +102,7 @@ namespace DataObject.AdoNet
         public DataTable GetProductByCategory(int category)
         {
             string sql = "";
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, conn);
             SqlDataAdapter da = new SqlDataAdapter(cmd);
             DataTable dt = new DataTable();
@@ -121,7 +129,7 @@ namespace DataObject.AdoNet
         public bool addNewProduct(Product p)
         {
             bool result = false;
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(connectionString);
             string sql = "";
             SqlCommand cmd = new SqlCommand(sql, conn);
             //truyen value
@@ -143,7 +151,7 @@ namespace DataObject.AdoNet
         public bool updateProduct(Product p)
         {
             bool result = false;
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(connectionString);
             string sql = "";
             SqlCommand cmd = new SqlCommand(sql, conn);
             //truyen value
