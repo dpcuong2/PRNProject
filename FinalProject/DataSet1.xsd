@@ -132,7 +132,7 @@
   <xs:element name="DataSet1" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSet1" msprop:Generator_UserDSName="DataSet1">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="tblUser" msprop:Generator_TableClassName="tblUserDataTable" msprop:Generator_TableVarName="tabletblUser" msprop:Generator_TablePropName="tblUser" msprop:Generator_RowDeletingName="tblUserRowDeleting" msprop:Generator_RowChangingName="tblUserRowChanging" msprop:Generator_RowEvHandlerName="tblUserRowChangeEventHandler" msprop:Generator_RowDeletedName="tblUserRowDeleted" msprop:Generator_UserTableName="tblUser" msprop:Generator_RowChangedName="tblUserRowChanged" msprop:Generator_RowEvArgName="tblUserRowChangeEvent" msprop:Generator_RowClassName="tblUserRow">
+        <xs:element name="tblUser" msprop:Generator_TableClassName="tblUserDataTable" msprop:Generator_TableVarName="tabletblUser" msprop:Generator_RowChangedName="tblUserRowChanged" msprop:Generator_TablePropName="tblUser" msprop:Generator_RowDeletingName="tblUserRowDeleting" msprop:Generator_RowChangingName="tblUserRowChanging" msprop:Generator_RowEvHandlerName="tblUserRowChangeEventHandler" msprop:Generator_RowDeletedName="tblUserRowDeleted" msprop:Generator_RowClassName="tblUserRow" msprop:Generator_UserTableName="tblUser" msprop:Generator_RowEvArgName="tblUserRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="username" msprop:Generator_ColumnVarNameInTable="columnusername" msprop:Generator_ColumnPropNameInRow="username" msprop:Generator_ColumnPropNameInTable="usernameColumn" msprop:Generator_UserColumnName="username">
@@ -161,7 +161,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="tblBrand" msprop:Generator_TableClassName="tblBrandDataTable" msprop:Generator_TableVarName="tabletblBrand" msprop:Generator_TablePropName="tblBrand" msprop:Generator_RowDeletingName="tblBrandRowDeleting" msprop:Generator_RowChangingName="tblBrandRowChanging" msprop:Generator_RowEvHandlerName="tblBrandRowChangeEventHandler" msprop:Generator_RowDeletedName="tblBrandRowDeleted" msprop:Generator_UserTableName="tblBrand" msprop:Generator_RowChangedName="tblBrandRowChanged" msprop:Generator_RowEvArgName="tblBrandRowChangeEvent" msprop:Generator_RowClassName="tblBrandRow">
+        <xs:element name="tblBrand" msprop:Generator_TableClassName="tblBrandDataTable" msprop:Generator_TableVarName="tabletblBrand" msprop:Generator_RowChangedName="tblBrandRowChanged" msprop:Generator_TablePropName="tblBrand" msprop:Generator_RowDeletingName="tblBrandRowDeleting" msprop:Generator_RowChangingName="tblBrandRowChanging" msprop:Generator_RowEvHandlerName="tblBrandRowChangeEventHandler" msprop:Generator_RowDeletedName="tblBrandRowDeleted" msprop:Generator_RowClassName="tblBrandRow" msprop:Generator_UserTableName="tblBrand" msprop:Generator_RowEvArgName="tblBrandRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="brandID" msprop:Generator_ColumnVarNameInTable="columnbrandID" msprop:Generator_ColumnPropNameInRow="brandID" msprop:Generator_ColumnPropNameInTable="brandIDColumn" msprop:Generator_UserColumnName="brandID">

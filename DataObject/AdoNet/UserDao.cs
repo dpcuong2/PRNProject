@@ -23,6 +23,10 @@ namespace DataObject.AdoNet
             SqlConnection conn = new SqlConnection();
             string sql = "";
             SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@username", userID);
+            cmd.Parameters.AddWithValue("@password", password);
+            SqlDataReader dr = cmd.ExecuteReader(CommandBehavior.CloseConnection);
             //truyen value
             try
             {
@@ -30,7 +34,11 @@ namespace DataObject.AdoNet
                 {
                     conn.Open();
                 }
-                result = (bool) cmd.ExecuteScalar();
+                if (dr.Read())
+                {
+                    result = dr.GetInt32(0) > 0;
+                }
+                
             }
             catch (SqlException ex)
             {
@@ -39,9 +47,6 @@ namespace DataObject.AdoNet
             return result;
         }
 
-        public bool CheckLogin()
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

@@ -12,10 +12,10 @@ namespace DataObject
     {
         DataTable GetOrderDetails();
 
-        OrderDetail GetOrderDetail();
+        OrderDetail GetOrderDetail(int orderDetailId);
 
         bool CreateOrderDetail(OrderDetail od);
         bool UpdateOrderDetail(OrderDetail od);
-        bool DeleteOrderDetail(string orderID);
+        bool DeleteOrderDetail(string orderDetaiID);
     }
 }

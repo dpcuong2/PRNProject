@@ -8,6 +8,6 @@ namespace DataObject
 {
     public interface IUser
     {
-        bool CheckLogin();
+        bool CheckLogin(string userID, string password);
     }
 }

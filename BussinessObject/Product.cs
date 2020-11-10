@@ -14,5 +14,6 @@ namespace BussinessObject
         public string CategoryID{ get; set; }
         public string BrandID{ get; set; }
         public float Price{ get; set; }
+        public float Weight { get; set; }
     }
 }

@@ -22,9 +22,19 @@ namespace DataObject.AdoNet
         {
             bool result = false;
             SqlConnection conn = new SqlConnection(connectionString);
-            string sql = "";
+            string sql = "dbo.CreateOrderDetail";
             SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            
+            cmd.Parameters.AddWithValue("@date", od.Date);
+            cmd.Parameters.AddWithValue("@totalPrice", od.ProductID);
+            cmd.Parameters.AddWithValue("@Phone", od.Phone);
+            cmd.Parameters.AddWithValue("@OrderId", od.OrderDetailID);
+            cmd.Parameters.AddWithValue("@Quantity", od.Quantity);
+
+
             //truyen value
+
             try
             {
                 if (conn.State == ConnectionState.Closed)
@@ -42,19 +52,43 @@ namespace DataObject.AdoNet
 
         public bool DeleteOrderDetail(string orderID)
         {
-            throw new NotImplementedException();
+            bool result = false;
+            SqlConnection conn = new SqlConnection(connectionString);
+            string sql = "dbo.CreateOrderDetail";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@OrderDetail", orderID);
+            
+
+
+            
+
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                result = cmd.ExecuteNonQuery() > 0;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return result;
         }
 
-        public OrderDetail GetOrderDetail()
+        public OrderDetail GetOrderDetail(int orderDetailId)
         {
             OrderDetail orderDetail = null;
-            string sql = "";
+            string sql = "dbo.GetOrderDetail";
             SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.StoredProcedure;
 
             // truyen value
-           
+            cmd.Parameters.AddWithValue("@OrderDetailId", orderDetailId);
 
             try
             {
@@ -65,7 +99,22 @@ namespace DataObject.AdoNet
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    
+                    string productId = dr.GetString(1);
+                    DateTime date = dr.GetDateTime(2);
+                    float totalPrice = dr.GetFloat(3);
+                    string phone = dr.GetString(4);
+                    int quantity = dr.GetInt32(5);
+                    int orderID = dr.GetInt32(6);
+                    orderDetail = new OrderDetail
+                    {
+                        OrderDetailID = orderDetailId,
+                        Date = date,
+                        TotalPrice = totalPrice,
+                        Phone = phone,
+                        Quantity = quantity,
+                        OrderId = orderID
+                    };
+
                 }
             }
             catch (SqlException ex)
@@ -77,7 +126,7 @@ namespace DataObject.AdoNet
 
         public DataTable GetOrderDetails()
         {
-            string sql = "";
+            string sql = "dbo.GetOrderDetails";
             SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -109,9 +158,14 @@ namespace DataObject.AdoNet
             string sql = "";
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.StoredProcedure;
-           // cmd.Parameters.AddWithValue();
-           // cmd.Parameters.AddWithValue();
-            //truyen value
+            cmd.Parameters.AddWithValue("@detailId",od.OrderDetailID);
+            cmd.Parameters.AddWithValue("@date" , od.Date);
+            cmd.Parameters.AddWithValue("@totalPrice", od.TotalPrice);
+            cmd.Parameters.AddWithValue("@Phone", od.Phone);
+            cmd.Parameters.AddWithValue("@Quantity", od.Quantity);
+            
+
+
             try
             {
                 if (conn.State == ConnectionState.Closed)
