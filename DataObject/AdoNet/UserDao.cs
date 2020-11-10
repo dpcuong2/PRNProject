@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -10,6 +11,12 @@ namespace DataObject.AdoNet
 {
     class UserDao:IUser
     {
+        string connectionString;
+
+        public UserDao()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["sqlserver"].ConnectionString;
+        }
         public bool CheckLogin(string userID, string password)
         {
             bool result = false;

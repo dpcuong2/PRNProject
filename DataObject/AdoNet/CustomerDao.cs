@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
@@ -11,14 +12,18 @@ namespace DataObject.AdoNet
 {
     class CustomerDao:ICustomerDao
     {
-        
+        string connectionString;
 
+        public CustomerDao()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["sqlserver"].ConnectionString;
+        }
 
         public Customer GetCustomer(string customerId)
         {
             Customer customer = null;
             string sql = "dbo.GetCustomers";
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.StoredProcedure;
             try
@@ -57,7 +62,7 @@ namespace DataObject.AdoNet
         public bool AddCustomer(Customer c)
         {
             bool result = false;
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(connectionString);
             string sql = "dbo.AddCustomer";
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.StoredProcedure;

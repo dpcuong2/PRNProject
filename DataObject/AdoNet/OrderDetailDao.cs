@@ -10,30 +10,21 @@ using BussinessObject;
 
 namespace DataObject.AdoNet
 {
-    class OrderDao:IOrderDao
+    class OrderDetailDao : IOrderDetailDao
     {
         string connectionString;
 
-        public OrderDao()
+        public OrderDetailDao()
         {
             connectionString = ConfigurationManager.ConnectionStrings["sqlserver"].ConnectionString;
         }
-
-        public bool CreateOrder(Order o)
+        public bool CreateOrderDetail(OrderDetail od)
         {
             bool result = false;
-            
-            string sql = "dbo.AddOrder";
             SqlConnection conn = new SqlConnection(connectionString);
-            
+            string sql = "";
             SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.CommandType = CommandType.StoredProcedure;
             //truyen value
-            cmd.Parameters.AddWithValue("@customerId" , o.CustomerID);
-            cmd.Parameters.AddWithValue("@Date" , o.Date);
-            cmd.Parameters.AddWithValue("@Price" , o.TotalPrice);
-            cmd.Parameters.AddWithValue("@Discount" , o.Discount);
-            cmd.Parameters.AddWithValue("@Address" , o.Address);
             try
             {
                 if (conn.State == ConnectionState.Closed)
@@ -47,11 +38,46 @@ namespace DataObject.AdoNet
                 throw new Exception(ex.Message);
             }
             return result;
-        }  
+        }
 
-        public DataTable GetOrderList()
+        public bool DeleteOrderDetail(string orderID)
         {
-            string sql = "dbo.GetOrdersList";
+            throw new NotImplementedException();
+        }
+
+        public OrderDetail GetOrderDetail()
+        {
+            OrderDetail orderDetail = null;
+            string sql = "";
+            SqlConnection conn = new SqlConnection(connectionString);
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            // truyen value
+           
+
+            try
+            {
+                if (conn.State == ConnectionState.Closed)
+                {
+                    conn.Open();
+                }
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return orderDetail;
+        }
+
+        public DataTable GetOrderDetails()
+        {
+            string sql = "";
             SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -76,79 +102,16 @@ namespace DataObject.AdoNet
             return dt;
         }
 
-        public Order GetOrder(int orderId)
+        public bool UpdateOrderDetail(OrderDetail od)
         {
-            Order order = null;
-            string sql = "dbo.GetOrderById";
+            bool result = false;
             SqlConnection conn = new SqlConnection(connectionString);
+            string sql = "";
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            try
-            {
-                if (conn.State == ConnectionState.Closed)
-                {
-                    conn.Open();
-                }
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    int customerID = dr.GetInt32(1);
-                    string name = dr.GetString(2);
-                    string phone = dr.GetString(3);
-                    
-
-                }
-                return order;
-            }
-            catch (SqlException ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            finally
-            {
-                conn.Close();
-            }
-        }
-
-        public bool DeleteOrder(Order o)
-        {
-            bool result = false;
-            SqlConnection conn = new SqlConnection();
-            string sql = "dbo.DeleteOrder";
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.CommandType = CommandType.StoredProcedure;
+           // cmd.Parameters.AddWithValue();
+           // cmd.Parameters.AddWithValue();
             //truyen value
-            cmd.Parameters.AddWithValue("@OrderID", o.OrderID);
-            try
-            {
-                if (conn.State == ConnectionState.Closed)
-                {
-                    conn.Open();
-                }
-                result = cmd.ExecuteNonQuery() > 0;
-            }
-            catch (SqlException ex)
-            {
-                throw new Exception(ex.Message);
-            }
-            return result;
-        }
-
-        public bool UpdateOrder(Order o)
-        {
-            bool result = false;
-            SqlConnection conn = new SqlConnection();
-            string sql = "dbo.UpdateOrder";
-            SqlCommand cmd = new SqlCommand(sql, conn);
-            cmd.CommandType = CommandType.StoredProcedure;
-
-            //truyen value
-            cmd.Parameters.AddWithValue("@OrderID" , o.OrderID);
-            cmd.Parameters.AddWithValue("@CustomerId", o.CustomerID);
-            cmd.Parameters.AddWithValue("@Date", o.Date);
-            cmd.Parameters.AddWithValue("@Price", o.TotalPrice);
-            cmd.Parameters.AddWithValue("@Discount", o.Discount);
-            cmd.Parameters.AddWithValue("@Address", o.Address);
             try
             {
                 if (conn.State == ConnectionState.Closed)
