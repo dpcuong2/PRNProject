@@ -50,6 +50,10 @@
       <Project>{d78820c8-f22a-41d6-9bd0-148e79ef253a}</Project>
       <Name>BussinessObject</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataObject\DataObject.csproj">
+      <Project>{89939ed8-6576-4844-8598-18dd37db7e20}</Project>
+      <Name>DataObject</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

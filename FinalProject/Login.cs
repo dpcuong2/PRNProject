@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Service_Action;
 
 namespace FinalProject
 {
@@ -19,7 +20,10 @@ namespace FinalProject
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-
+            string username = txtUsername.Text;
+            string password = txtPassword.Text;
+            Service service = new Service();
+            service.CheckLogin(username, password);
         }
 
         private void btnExit_Click(object sender, EventArgs e)

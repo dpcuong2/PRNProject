@@ -14,7 +14,8 @@ namespace DataObject
 
         bool AddCategory(Category c);
         bool UpdateCategory(Category c);
-       
+
+        Category GetCategoryByProduct(int productId);
 
     }
 }

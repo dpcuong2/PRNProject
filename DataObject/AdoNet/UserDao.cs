@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataObject.AdoNet
 {
-    class UserDao:IUser
+    public class UserDao:IUser
     {
         string connectionString;
 

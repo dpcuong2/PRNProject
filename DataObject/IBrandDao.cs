@@ -19,6 +19,6 @@ namespace DataObject
         bool AddBrand(Brand b);
         bool DeleteBrand(Brand b);
 
-
+        Brand GetBrandByProduct(int productId);
     }
 }

@@ -17,5 +17,7 @@ namespace DataObject
         bool CreateOrderDetail(OrderDetail od);
         bool UpdateOrderDetail(OrderDetail od);
         bool DeleteOrderDetail(string orderDetaiID);
+
+
     }
 }

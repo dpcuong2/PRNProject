@@ -10,7 +10,7 @@ using BussinessObject;
 
 namespace DataObject.AdoNet
 {
-    class BrandDao : IBrandDao
+    public class BrandDao : IBrandDao
     {
         string connectionString;
 
@@ -52,9 +52,9 @@ namespace DataObject.AdoNet
             SqlConnection conn = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sql, conn);
             cmd.CommandType = CommandType.StoredProcedure;
-            
+
             // truyen value
-            cmd.Parameters.AddWithValue("@productId" , productId);
+            cmd.Parameters.AddWithValue("@productId", productId);
             try
             {
                 if (conn.State == ConnectionState.Closed)
@@ -68,8 +68,8 @@ namespace DataObject.AdoNet
                     String BrandId = dr["brandID"].ToString();
                     brand = new Brand
                     {
-                       Name = BrandName,
-                       BrandId = BrandId,
+                        Name = BrandName,
+                        BrandId = BrandId,
                     };
                 }
             }
@@ -80,7 +80,7 @@ namespace DataObject.AdoNet
             return brand;
         }
 
-       
+
 
         public bool UpdateBrand(Brand b)
         {
@@ -91,7 +91,7 @@ namespace DataObject.AdoNet
             cmd.CommandType = CommandType.StoredProcedure;
 
             //truyen value
-            cmd.Parameters.AddWithValue("@brandID" , b.BrandId);
+            cmd.Parameters.AddWithValue("@brandID", b.BrandId);
             cmd.Parameters.AddWithValue("@name", b.Name);
             try
             {

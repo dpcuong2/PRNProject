@@ -10,7 +10,7 @@ using BussinessObject;
 
 namespace DataObject.AdoNet
 {
-    class ProductDao : IProductDao
+    public class ProductDao : IProductDao
     {
         string connectionString;
 

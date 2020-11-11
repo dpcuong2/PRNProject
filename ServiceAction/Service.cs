@@ -20,7 +20,7 @@ namespace Service_Action
         static readonly IOrderDetailDao orderDetailDao = new OrderDetailDao();
         static readonly IProductDao productDao = new ProductDao();
         static readonly IUser userDao = new UserDao();
-        
+
 
 
 

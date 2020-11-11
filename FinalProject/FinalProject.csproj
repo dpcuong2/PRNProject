@@ -134,5 +134,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ServiceAction\ServiceAction.csproj">
+      <Project>{8be70b5a-2074-4212-8567-b4fa32660b67}</Project>
+      <Name>ServiceAction</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
